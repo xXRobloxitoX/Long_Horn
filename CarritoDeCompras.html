@@ -155,235 +155,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carro de la Compra - Longhorn Grill and Drinks</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Carro de Compras</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
-        .hidden { display: none; }
-        .step { display: none; }
-        .step.active { display: block; }
-        .valid { color: green; }
-        .invalid { color: red; }
-        .valid-icon { color: green; }
-        .invalid-icon { color: red; }
-        .input-group { margin-bottom: 10px; }
-        .progress-bar { width: 0; height: 5px; background-color: green; }
-        .progress { margin-top: 10px; }
-        #loading {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2em;
+        .wrapper {
+            padding: 20px;
         }
-        .step-form {
-            margin-bottom: 20px;
+        .progress-bar {
+            width: 33%;
+        }
+        .h5 {
+            font-size: 1.25rem;
+        }
+        .btn {
+            cursor: pointer;
+        }
+        .text-muted {
+            color: #6c757d !important;
+        }
+        .text-primary {
+            color: #007bff !important;
+        }
+        .bg-light {
+            background-color: #f8f9fa !important;
+        }
+        .bg-white {
+            background-color: #ffffff !important;
+        }
+        .bg-success {
+            background-color: #28a745 !important;
+        }
+        .progress {
+            height: 10px;
         }
     </style>
 </head>
 <body>
 
-<!-- Loading GIF -->
-<div id="loading">
-    Cargando...
+<nav class="bg-white">
+    <div class="d-flex align-items-center">
+        <div class="logo"> <a href="#" class="text-uppercase">Longhorn Grill and Drinks</a> </div>
+        <div class="ml-auto"> <a href="#" class="text-uppercase">Volver a comprar</a> </div>
+    </div>
+</nav>
+
+<header>
+    <div class="d-flex justify-content-center align-items-center pb-3">
+        <div class="px-sm-5 px-2 active">CARRO DE LA COMPRA <span class="fas fa-check"></span> </div>
+        <div class="px-sm-5 px-2">VERIFICAR</div>
+        <div class="px-sm-5 px-2">FINALIZADO</div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</header>
+
+<div class="wrapper">
+    <div class="h5 large">Dirección de facturación</div>
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1">
+            <div class="mobile h5">Dirección de facturación</div>
+            <div id="details" class="bg-white rounded pb-5">
+                <form>
+                    <div class="form-group">
+                        <label class="text-muted">Nombre</label>
+                        <input type="text" value="David Smith" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="text-muted">Correo Electrónico</label>
+                        <div class="d-flex jusify-content-start align-items-center rounded p-2">
+                            <input type="email" value="david.343@gmail.com">
+                            <span class="fas fa-check text-success pr-sm-2 pr-0"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Ciudad</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2">
+                                    <input type="text" value="Houston">
+                                    <span class="fas fa-check text-success pr-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Código Postal</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2">
+                                    <input type="text" value="77001">
+                                    <span class="fas fa-check text-success pr-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Dirección</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2">
+                                    <input type="text" value="542 W.14th Street">
+                                    <span class="fas fa-check text-success pr-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label>Estado</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2">
+                                    <input type="text" value="NY">
+                                    <span class="fas fa-check text-success pr-2"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <label>País</label>
+                    <select name="country" id="country">
+                        <option value="usa">EE.UU.</option>
+                        <option value="ind">India</option>
+                    </select>
+                </form>
+            </div>
+            <input type="checkbox" checked> <label>La dirección de envío es la misma que la de facturación</label>
+            <div id="address" class="bg-light rounded mt-3">
+                <div class="h5 font-weight-bold text-primary">Dirección de envío</div>
+                <div class="d-md-flex justify-content-md-start align-items-md-center pt-3">
+                    <div class="mr-auto">
+                        <b>Dirección de casa</b>
+                        <p class="text-justify text-muted">542 W.14th Street</p>
+                        <p class="text-uppercase text-muted">NY</p>
+                    </div>
+                    <div class="rounded py-2 px-3" id="register"> <a href="#"> <b>Regístrate ahora</b> </a>
+                        <p class="text-muted">Crea una cuenta para guardar varias direcciones</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1 pt-lg-0 pt-3">
+            <div id="cart" class="bg-white rounded">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="h6">Resumen del carrito</div>
+                    <div class="h6"><a href="#">Editar</a></div>
+                </div>
+                <div class="d-flex jusitfy-content-between align-items-center pt-3 pb-2 border-bottom">
+                    <div class="item pr-2"> <img src="https://images.unsplash.com/photo-1569488859134-24b2d490f23f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" width="80" height="80">
+                        <div class="number">2</div>
+                    </div>
+                    <div class="d-flex flex-column px-3"> <b class="h5">BattleCreek Coffee</b> <a href="#" class="h5 text-primary">C-770</a> </div>
+                    <div class="ml-auto"> <b class="h5">$80.9</b> </div>
+                </div>
+                <div class="my-3"> <input type="text" class="w-100 form-control text-center" placeholder="Tarjeta de Regalo o Código Promocional"> </div>
+                <div class="d-flex align-items-center">
+                    <div class="display-5">Subtotal</div>
+                    <div class="ml-auto font-weight-bold">$80.9</div>
+                </div>
+                <div class="d-flex align-items-center py-2 border-bottom">
+                    <div class="display-5">Envío</div>
+                    <div class="ml-auto font-weight-bold">$12.9</div>
+                </div>
+                <div class="d-flex align-items-center py-2">
+                    <div class="display-5">Total</div>
+                    <div class="ml-auto d-flex">
+                        <div class="text-primary text-uppercase px-3">usd</div>
+                        <div class="font-weight-bold">$93.8</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5">
+                <div class="row">
+                    <div class="col-6">
+                        <button class="btn w-100 bg-light" id="back"><b>Volver a comprar</b></button>
+                    </div>
+                    <div class="col-6">
+                        <button class="btn w-100 bg-primary text-white" id="checkout"><b>Verificar</b></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<!-- Carro de Compra -->
-<div id="cartSection" class="step active">
-    <h3>Carro de la Compra</h3>
-    <p>Lista de productos aquí...</p>
-    <!-- Aquí agregarás dinámicamente los productos seleccionados por el usuario -->
-    <button class="btn btn-primary" onclick="nextStep()">Siguiente</button>
-</div>
-
-<!-- Verificación de Datos -->
-<div id="verifySection" class="step">
-    <h3>Verificar Datos</h3>
-    <p>Verifica tu dirección y método de pago.</p>
-
-    <!-- Dirección de Facturación -->
-    <h4>Dirección de Facturación</h4>
-    <div class="input-group step-form">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" class="form-control" placeholder="Nombre" onchange="validateField('name')">
-        <span id="nameStatus"></span>
-    </div>
-    <div class="input-group step-form">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" class="form-control" placeholder="Correo electrónico" onchange="validateField('email')">
-        <span id="emailStatus"></span>
-    </div>
-    <div class="input-group step-form">
-        <label for="address">Dirección</label>
-        <input type="text" id="address" class="form-control" placeholder="Dirección" onchange="validateField('address')">
-        <span id="addressStatus"></span>
-    </div>
-    <div class="input-group step-form">
-        <label for="city">Ciudad</label>
-        <input type="text" id="city" class="form-control" placeholder="Ciudad" onchange="validateField('city')">
-        <span id="cityStatus"></span>
-    </div>
-    <div class="input-group step-form">
-        <label for="postalCode">Código Postal</label>
-        <input type="text" id="postalCode" class="form-control" placeholder="Código Postal" onchange="validateField('postalCode')">
-        <span id="postalCodeStatus"></span>
-    </div>
-    <div class="input-group step-form">
-        <label for="state">Estado</label>
-        <input type="text" id="state" class="form-control" placeholder="Estado" onchange="validateField('state')">
-        <span id="stateStatus"></span>
-    </div>
-    <div class="input-group step-form">
-        <label for="country">País</label>
-        <input type="text" id="country" class="form-control" placeholder="País" onchange="validateField('country')">
-        <span id="countryStatus"></span>
-    </div>
-
-    <!-- Dirección de Envío -->
-    <h4>Dirección de Envío</h4>
-    <div class="input-group step-form">
-        <label for="shippingAddress">Dirección de Casa</label>
-        <input type="text" id="shippingAddress" class="form-control" placeholder="Dirección de Casa" onchange="validateField('shippingAddress')">
-        <span id="shippingAddressStatus"></span>
-    </div>
-    <div class="input-group step-form">
-        <label for="shippingCity">Ciudad</label>
-        <input type="text" id="shippingCity" class="form-control" placeholder="Ciudad" onchange="validateField('shippingCity')">
-        <span id="shippingCityStatus"></span>
-    </div>
-
-    <!-- Métodos de pago -->
-    <h4>Método de Pago</h4>
-    <div class="input-group step-form">
-        <label for="paymentMethod">Selecciona un método de pago</label>
-        <select id="paymentMethod" class="form-control" onchange="validateField('paymentMethod')">
-            <option value="">Seleccione...</option>
-            <option value="tarjeta">Tarjeta de Crédito/Débito</option>
-            <option value="yape">Yape</option>
-        </select>
-        <span id="paymentMethodStatus"></span>
-    </div>
-
-    <button class="btn btn-primary" onclick="nextStep()">Siguiente</button>
-</div>
-
-<!-- Finalización del Pedido -->
-<div id="finalSection" class="step">
-    <h3>¡Gracias por tu compra!</h3>
-    <p>Tu pedido ha sido confirmado. Recibirás una notificación por correo electrónico.</p>
-    <button class="btn btn-success" onclick="finishPurchase()">Finalizar</button>
-</div>
-
-<!-- Registro o Inicio de sesión -->
-<div id="loginSection" class="step">
-    <h3>¿Tienes cuenta?</h3>
-    <button class="btn btn-link" onclick="goToRegister()">Regístrate ahora</button>
-    <p>O</p>
-    <button class="btn btn-link" onclick="goToLogin()">Iniciar sesión</button>
-</div>
-
-<!-- Progreso -->
-<div class="progress">
-    <div id="progressBar" class="progress-bar"></div>
-</div>
-
-<!-- Scripts -->
-<script>
-    let currentStep = 0;
-    const steps = document.querySelectorAll('.step');
-    const progressBar = document.getElementById('progressBar');
-
-    // Función para cambiar entre pasos
-    function nextStep() {
-        // Validación de los campos
-        let valid = validateStep();
-        
-        if (valid) {
-            steps[currentStep].classList.remove('active');
-            currentStep++;
-            if (currentStep < steps.length) {
-                steps[currentStep].classList.add('active');
-                updateProgress();
-            }
-        }
-    }
-
-    // Validación de campos del paso actual
-    function validateStep() {
-        let valid = true;
-        const currentInputs = steps[currentStep].querySelectorAll('input, select');
-        currentInputs.forEach(input => {
-            const status = input.nextElementSibling;
-            if (input.value.trim() === "" || (input.type === "email" && !validateEmail(input.value))) {
-                valid = false;
-                status.innerHTML = "❌";
-                status.classList.add('invalid');
-            } else {
-                status.innerHTML = "✔️";
-                status.classList.remove('invalid');
-                status.classList.add('valid');
-            }
-        });
-        return valid;
-    }
-
-    // Validación de email
-    function validateEmail(email) {
-        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        return regex.test(email);
-    }
-
-    // Función de compra finalizada
-    function finishPurchase() {
-        document.getElementById('loading').style.display = 'flex';
-        setTimeout(() => {
-            document.getElementById('loading').style.display = 'none';
-            alert("Compra Finalizada!");
-        }, 3000);
-    }
-
-    // Función para actualizar la barra de progreso
-    function updateProgress() {
-        const percentage = (currentStep / (steps.length - 1)) * 100;
-        progressBar.style.width = percentage + '%';
-    }
-
-    // Función para redirigir a la página de registro
-    function goToRegister() {
-        window.location.href = "registro.html";
-    }
-
-    // Función para redirigir a la página de login
-    function goToLogin() {
-        window.location.href = "login.html";
-    }
-
-    // Validación dinámica de campos
-    function validateField(fieldId) {
-        const field = document.getElementById(fieldId);
-        const status = document.getElementById(fieldId + 'Status');
-        if (field.value.trim() === "" || (field.type === "email" && !validateEmail(field.value))) {
-            status.innerHTML = "❌";
-            status.classList.add('invalid');
-        } else {
-            status.innerHTML = "✔️";
-            status.classList.remove('invalid');
-            status.classList.add('valid');
-        }
-    }
-
-    // Iniciar en el primer paso
-    updateProgress();
-</script>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
