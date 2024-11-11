@@ -155,123 +155,192 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrito de Compra - Longhorn Grill and Drinks</title>
+    <title>Longhorn Grill and Drinks - Compra</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background-color: #f3f3f3;
-        }
-        .progress-bar-inner {
-            height: 100%;
-            width: 0;
-            background-color: #4caf50;
-        }
-        .loading-gif {
-            text-align: center;
-        }
+        .progress-bar { width: 33.33%; }
+        .active { color: #007bff; font-weight: bold; }
+        .hidden { display: none; }
+        .checkout-button { width: 100%; }
+        .product-image { width: 80px; height: 80px; }
+        .product-title { font-size: 1.2rem; font-weight: bold; }
+        .product-price { font-size: 1.1rem; color: green; }
+        .summary { font-size: 1.2rem; }
+        .thank-you { font-size: 1.5rem; color: #28a745; text-align: center; margin-top: 20px; }
     </style>
 </head>
 <body>
 
-    <!-- CARRO DE LA COMPRA (Shopping Cart) -->
-    <h2>Carro de la Compra</h2>
-    <form id="carrito-form">
-        <label for="nombre">Nombre Completo:</label>
-        <input type="text" id="nombre" name="nombre" required>
-        
-        <label for="direccion">Dirección:</label>
-        <input type="text" id="direccion" name="direccion" required>
-        
-        <label for="correo">Correo Electrónico:</label>
-        <input type="email" id="correo" name="correo" required>
-        
-        <label for="telefono">Número de Teléfono:</label>
-        <input type="tel" id="telefono" name="telefono" required>
-
-        <label for="pais">País:</label>
-        <input type="text" id="pais" name="pais" value="Perú" readonly>
-
-        <label for="ciudad">Ciudad:</label>
-        <select id="ciudad" name="ciudad" required>
-            <option value="Lima">Lima</option>
-            <option value="Arequipa">Arequipa</option>
-            <option value="Trujillo">Trujillo</option>
-        </select>
-
-        <label for="promo">Código de Descuento:</label>
-        <input type="text" id="promo" name="promo">
-
-        <label for="pago">Método de Pago:</label>
-        <select id="pago" name="pago" required>
-            <option value="tarjeta">Tarjeta de Crédito</option>
-            <option value="yape">Yape</option>
-        </select>
-
-        <p>Subtotal: S/. <span id="subtotal">100.00</span></p>
-
-        <button type="submit" id="procesar">Procesar Compra</button>
-    </form>
-
-    <!-- Barra de Progreso -->
-    <div class="progress-bar">
-        <div class="progress-bar-inner" id="progress-bar"></div>
+<!-- Barra de navegación -->
+<nav class="bg-white">
+    <div class="d-flex align-items-center justify-content-between px-3 py-2">
+        <div class="logo"> <a href="#" class="text-uppercase">Longhorn Grill and Drinks</a> </div>
+        <div class="ml-auto"> <a href="index.html" class="text-uppercase">Volver a la tienda</a> </div>
     </div>
+</nav>
 
-    <!-- VERIFICAR (Checkout) -->
-    <div id="verificar-section" style="display:none;">
-        <h2>Verificar Compra</h2>
-        <div class="loading-gif">
-            <img src="loading.gif" alt="Cargando...">
+<!-- Progreso del carrito -->
+<header>
+    <div class="d-flex justify-content-center align-items-center pb-3">
+        <div class="px-sm-5 px-2 active">CARRO DE LA COMPRA <span class="fas fa-check"></span> </div>
+        <div class="px-sm-5 px-2">VERIFICAR</div>
+        <div class="px-sm-5 px-2">Finalizado</div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar bg-success" role="progressbar" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+</header>
+
+<!-- Contenido del carrito -->
+<div class="wrapper">
+    <div class="h5 large">Dirección de facturación</div>
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1">
+            <div class="mobile h5">Dirección de facturación</div>
+            <div id="details" class="bg-white rounded pb-5">
+                <form>
+                    <div class="form-group"> <label class="text-muted">Nombre</label> <input type="text" value="David Smith" class="form-control"> </div>
+                    <div class="form-group"> <label class="text-muted">Correo electrónico</label>
+                        <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="email" value="david.343@gmail.com"> <span class="fas fa-check text-success pr-sm-2 pr-0"></span> </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group"> <label>Ciudad</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" value="Houston"> <span class="fas fa-check text-success pr-2"></span> </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group"> <label>Código postal</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" value="77001"> <span class="fas fa-check text-success pr-2"></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group"> <label>Dirección</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" value="542 W.14th Street"> <span class="fas fa-check text-success pr-2"></span> </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group"> <label>Estado</label>
+                                <div class="d-flex jusify-content-start align-items-center rounded p-2"> <input type="text" value="NY"> <span class="fas fa-check text-success pr-2"></span> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <label>País</label> <select name="country" id="country">
+                        <option value="peru">Perú</option>
+                        <option value="ind">INDIA</option>
+                    </select>
+                </form>
+            </div> 
+            <input type="checkbox" checked> <label>La dirección de envío es la misma que la de facturación</label>
+            <div id="address" class="bg-light rounded mt-3">
+                <div class="h5 font-weight-bold text-primary"> Dirección de envío </div>
+                <div class="d-md-flex justify-content-md-start align-items-md-center pt-3">
+                    <div class="mr-auto"> <b>Dirección de casa</b>
+                        <p class="text-justify text-muted">542 W.14th Street</p>
+                        <p class="text-uppercase text-muted">NY</p>
+                    </div>
+                    <div class="rounded py-2 px-3" id="register"> <a href="#"> <b>Registrarse ahora</b> </a>
+                        <p class="text-muted">Crea una cuenta para guardar múltiples direcciones</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="barra-cargando"></div>
+
+        <!-- Carrito de la compra -->
+        <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1 pt-lg-0 pt-3">
+            <div id="cart" class="bg-white rounded">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="h6">Resumen del carrito</div>
+                    <div class="h6"> <a href="#">Editar</a> </div>
+                </div>
+                <!-- Producto en el carrito -->
+                <div class="d-flex justify-content-between align-items-center pt-3 pb-2 border-bottom">
+                    <div class="item pr-2"> 
+                        <img src="ruta/a/tu/imagen-del-producto.jpg" alt="Imagen del producto" class="product-image">
+                        <div class="number">1</div>
+                    </div>
+                    <div class="d-flex flex-column px-3"> 
+                        <b class="product-title">Nombre del Producto</b> 
+                        <a href="#" class="h5 text-primary">Código del Producto</a> 
+                    </div>
+                    <div class="ml-auto"> 
+                        <b class="product-price">S/. 50.00</b>
+                    </div>
+                </div>
+                <div class="my-3"> <input type="text" class="w-100 form-control text-center" placeholder="Tarjeta de regalo o código promocional"> </div>
+                <div class="d-flex align-items-center">
+                    <div class="display-5">Subtotal</div>
+                    <div class="ml-auto font-weight-bold">S/. 50.00</div>
+                </div>
+                <div class="d-flex align-items-center py-2 border-bottom">
+                    <div class="display-5">Envío</div>
+                    <div class="ml-auto font-weight-bold">S/. 10.00</div>
+                </div>
+                <div class="d-flex align-items-center py-2">
+                    <div class="display-5">Total</div>
+                    <div class="ml-auto d-flex">
+                        <div class="text-primary text-uppercase px-3">soles</div>
+                        <div class="font-weight-bold">S/. 60.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-muted">¿Necesitas ayuda con tu pedido?</p>
+            <p class="text-muted"><a href="#" class="text-danger">Línea directa:</a> +314440160 (Internacional)</p>
+
+            <!-- Proceso de verificación -->
+            <div class="row pt-lg-3 pt-2 buttons mb-sm-0 mb-2">
+                <div class="col-6">
+                    <button id="nextStep" class="btn btn-dark text-uppercase checkout-button">Pagar ahora</button>
+                </div>
+                <div class="col-6">
+                    <button type="button" class="btn btn-outline-dark text-uppercase checkout-button" onclick="cancelarPedido()">Cancelar pedido</button>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 
-    <!-- Finalizado -->
-    <div id="finalizado-section" style="display:none;">
-        <h2>¡Gracias por tu compra! 🎉</h2>
-        <p>Tu pedido ya está listo. ¡Gracias por elegir Longhorn Grill and Drinks!</p>
+<!-- Animación de carga -->
+<div id="loadingScreen" class="hidden">
+    <div class="d-flex justify-content-center align-items-center vh-100">
+        <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Cargando...</span>
+        </div>
     </div>
+</div>
 
-    <script>
-        document.getElementById("carrito-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            // Validación de campos (por ejemplo, verificar tarjeta, Yape, código de descuento)
-            const validPayment = validatePayment(); // Suponiendo que tienes una función para esto
+<!-- Finalización -->
+<div id="thankYouScreen" class="hidden">
+    <div class="thank-you">
+        ¡Gracias por tu compra! 🎉
+    </div>
+</div>
 
-            if(validPayment) {
-                // Avanzar a VERIFICAR (Checkout)
-                transitionToVerify();
-            } else {
-                alert("Método de pago inválido. Por favor, verifica la información.");
-            }
-        });
+<!-- Scripts -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Función de pago
+    function cancelarPedido() {
+        window.location.href = "index.html";
+    }
 
-        function transitionToVerify() {
-            // Mostrar la sección de VERIFICAR
-            document.getElementById("carrito-form").style.display = "none";
-            document.getElementById("verificar-section").style.display = "block";
-            document.getElementById("progress-bar").style.width = "50%";
+    // Función de progreso
+    $("#nextStep").click(function() {
+        $('#loadingScreen').removeClass('hidden');
+        $('#cart').addClass('hidden');
 
-            // Simular tiempo de carga
-            setTimeout(function() {
-                transitionToFinalizado();
-            }, 3000); // 3 segundos de carga
-        }
-
-        function transitionToFinalizado() {
-            // Mostrar la sección de Finalizado
-            document.getElementById("verificar-section").style.display = "none";
-            document.getElementById("finalizado-section").style.display = "block";
-            document.getElementById("progress-bar").style.width = "100%";
-        }
-
-        function validatePayment() {
-            // Aquí deberías poner la lógica para verificar si el pago es válido.
-            // Por ejemplo, validar tarjeta, Yape, etc.
-            return true; // Para propósitos de ejemplo, asumimos que es válido
-        }
-    </script>
+        setTimeout(function() {
+            $('#loadingScreen').addClass('hidden');
+            $('#thankYouScreen').removeClass('hidden');
+            $(".progress-bar").css("width", "100%");
+        }, 3000);
+    });
+</script>
 
 </body>
 </html>
