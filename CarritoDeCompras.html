@@ -150,135 +150,95 @@
 <!-- Final de la barra de navegación -->
 
 <!--Comienzo del Metodo de pago --> 
-<div class="wrapper">
-    <!-- Barra de progreso -->
-    <div class="progress-bar">
-        <div id="progressBar" class="progress-bar-inner"></div>
+<div class="container">
+    <div class="row">
+        <!-- Barra de progreso en la parte superior -->
+        <div class="col-12" style="padding: 0;">
+            <div class="progress" style="height: 25px;">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+        </div>
     </div>
-
-    <!-- Paso 1: Dirección de Facturación -->
-    <div id="step1Content">
-        <div class="h5 large">Dirección de Facturación</div>
-        <div class="row">
-            <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1">
-                <div class="mobile h5">Dirección de Facturación</div>
-                <div id="details" class="bg-white rounded pb-5">
-                    <form>
-                        <div class="form-group"> <label class="text-muted">Nombre</label> <input type="text" class="form-control"> </div>
-                        <div class="form-group"> <label class="text-muted">Correo</label>
-                            <div class="d-flex justify-content-start align-items-center rounded p-2"> <input type="email" class="form-control"> <span class="fas fa-check text-success pr-sm-2 pr-0"></span> </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group"> <label>Ciudad</label>
-                                    <div class="d-flex justify-content-start align-items-center rounded p-2"> <input type="text" class="form-control"> <span class="fas fa-check text-success pr-2"></span> </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group"> <label>Código Postal</label>
-                                    <div class="d-flex justify-content-start align-items-center rounded p-2"> <input type="text" class="form-control"> <span class="fas fa-check text-success pr-2"></span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="form-group"> <label>Dirección</label>
-                                    <div class="d-flex justify-content-start align-items-center rounded p-2"> <input type="text" class="form-control"> <span class="fas fa-check text-success pr-2"></span> </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="form-group"> <label>Estado</label>
-                                    <div class="d-flex justify-content-start align-items-center rounded p-2"> <input type="text" class="form-control"> <span class="fas fa-check text-success pr-2"></span> </div>
-                                </div>
-                            </div>
-                        </div>
-                        <label>País</label> <select name="country" id="country" class="form-control">
-                            <option value="usa">USA</option>
-                            <option value="peru">Perú</option>
-                        </select>
-                    </form>
+    
+    <div class="row">
+        <!-- Carrusel que permite deslizarse -->
+        <div class="col-12" id="carouselExample" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- Paso 1: CARRO DE LA COMPRA -->
+                <div class="carousel-item active" id="step1Content">
+                    <div class="col-md-4" style="margin-top: 20px;">
+                        <h4>Resumen del Carro</h4>
+                        <ul>
+                            <li>Producto 2: Producto XYZ</li>
+                            <li>Código: C-770</li>
+                            <li>Precio: $80.9</li>
+                            <li>Tarjeta de Regalo o Promo</li>
+                            <li>Subtotal: $80.9</li>
+                            <li>Envío: $12.9</li>
+                            <li><strong>Total: $92.98</strong></li>
+                        </ul>
+                        <p><strong>¿Necesitas ayuda con un pedido?</strong></p>
+                        <p>Línea Directa: +314440160 (Internacional)</p>
+                        <p><strong>Seguridad en tu compra</strong></p>
+                    </div>
+                    <button class="btn btn-primary" onclick="moveToStep(2)">Continuar a Verificar</button>
                 </div>
-                <input type="checkbox" checked> <label>La dirección de envío es la misma que la de facturación</label>
-                <div id="address" class="bg-light rounded mt-3">
-                    <div class="h5 font-weight-bold text-primary"> Dirección de Envío </div>
-                    <div class="d-md-flex justify-content-md-start align-items-md-center pt-3">
-                        <div class="mr-auto"> <b>Dirección Principal</b>
-                            <p class="text-justify text-muted">542 W.14th Street</p>
-                            <p class="text-uppercase text-muted">NY</p>
-                        </div>
-                        <div class="rounded py-2 px-3" id="register"> <a href="#"> <b>Registrar Ahora</b> </a>
-                            <p class="text-muted">Crear cuenta para guardar varias direcciones</p>
-                        </div>
+
+                <!-- Paso 2: VERIFICAR -->
+                <div class="carousel-item" id="step2Content">
+                    <h2>VERIFICAR</h2>
+                    <div id="step2Form">
+                        <!-- Formulario de dirección de facturación -->
+                        <p>Dirección de Facturación</p>
+                        <form>
+                            <input type="text" placeholder="Nombre" required>
+                            <input type="email" placeholder="Correo" required>
+                            <input type="text" placeholder="Ciudad" required>
+                            <input type="text" placeholder="Código Postal" required>
+                            <input type="text" placeholder="Dirección" required>
+                            <select>
+                                <option value="USA">USA</option>
+                                <option value="Peru">Perú</option>
+                                <!-- Añadir más países según sea necesario -->
+                            </select>
+                            <input type="checkbox"> La dirección de envío es la misma que la de facturación
+                        </form>
+                    </div>
+                    <button class="btn btn-primary" onclick="moveToStep(3)">Finalizar Compra</button>
+                </div>
+
+                <!-- Paso 3: FINALIZAR -->
+                <div class="carousel-item" id="step3Content">
+                    <h2>FINALIZAR</h2>
+                    <div id="processingGif" style="display: block;">
+                        <img src="loading.gif" alt="Cargando..." />
+                    </div>
+                    <div id="processingText" style="display: block;">
+                        <p>Procesando tu pago...</p>
+                    </div>
+                    <div id="thankYouMessage" style="display: none;">
+                        <p>¡Gracias por tu compra! 🎉</p>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-center pt-3">
-            <button class="btn btn-primary text-white" onclick="moveToStep(2)">Continuar con el pago</button>
+
+            <!-- Controles del carrusel -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
 
-    <!-- Paso 2: Resumen del Carro -->
-    <div id="step2Content" class="stepContent" style="display:none;">
-        <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1 pt-lg-0 pt-3">
-            <div id="cart" class="bg-white rounded">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="h6">Resumen del Carro</div>
-                    <div class="h6"> <a href="#">Editar</a> </div>
-                </div>
-                <!-- Resumen del carro con la información correcta -->
-                <div class="d-flex justify-content-between align-items-center pt-3 pb-2 border-bottom">
-                    <div class="item pr-2"> <b class="h5">Producto</b> <span class="badge badge-primary">2</span> </div>
-                    <div class="d-flex flex-column px-3"> <b class="h5">Producto XYZ</b> <a href="#" class="h5 text-primary">C-770</a> </div>
-                    <div class="ml-auto"> <b class="h5">$80.9</b> </div>
-                </div>
-                <div class="my-3"> <input type="text" class="w-100 form-control text-center" placeholder="Tarjeta de Regalo o Promo"> </div>
-                <div class="d-flex align-items-center">
-                    <div class="display-5">Subtotal</div>
-                    <div class="ml-auto font-weight-bold">$80.9</div>
-                </div>
-                <div class="d-flex align-items-center py-2 border-bottom">
-                    <div class="display-5">Envío</div>
-                    <div class="ml-auto font-weight-bold">$12.9</div>
-                </div>
-                <div class="d-flex align-items-center py-2">
-                    <div class="display-5">Total</div>
-                    <div class="ml-auto d-flex">
-                        <div class="text-primary text-uppercase px-3">usd</div>
-                        <div class="font-weight-bold">$92.98</div>
-                    </div>
-                </div>
-            </div>
-            <p class="text-muted">¿Necesitas ayuda con un pedido?</p>
-            <p class="text-muted"><a href="#" class="text-danger">Línea Directa:</a>+314440160 (Internacional)</p>
-            <div class="h4 pt-3"> <span class="fas fa-shield-alt text-primary pr-2"></span> Seguridad en tu compra</div>
-            
-            <div class="row pt-lg-3 pt-2 buttons mb-sm-0 mb-2">
-                <div class="col-md-6">
-                    <div class="btn text-uppercase">Regresar a la compra</div>
-                </div>
-                <div class="col-md-6 pt-md-0 pt-3">
-                    <button class="btn btn-primary text-white ml-auto" onclick="moveToStep(3)"> <span class="fas fa-lock"></span> Continuar con el pago </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Paso 3: Pantalla de Gracias -->
-    <div id="step3Content" class="stepContent" style="display:none;">
-        <div class="text-center">
-            <img src="loading.gif" alt="Procesando" id="processingGif" style="width: 200px; height: auto;">
-            <p id="processingText">PROCESANDO</p>
-        </div>
-        <div id="thankYouMessage" style="display:none;">
-            <h3>¡Gracias por su compra!</h3>
-            <p>Esperamos que haya sido de su agrado. No olvide calificarnos.</p>
-            <div class="rating">
-                <span class="star" onclick="rate(1)">&#9733;</span>
-                <span class="star" onclick="rate(2)">&#9733;</span>
-                <span class="star" onclick="rate(3)">&#9733;</span>
-                <span class="star" onclick="rate(4)">&#9733;</span>
-                <span class="star" onclick="rate(5)">&#9733;</span>
+    <!-- Barra de progreso al pie -->
+    <div class="row">
+        <div class="col-12" style="padding: 0; margin-top: 20px;">
+            <div class="progress" style="height: 25px;">
+                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
         </div>
     </div>
@@ -294,11 +254,13 @@
             document.getElementById('step1Content').style.display = 'block';
             document.getElementById('step2Content').style.display = 'none';
             document.getElementById('step3Content').style.display = 'none';
+            updateProgressBar();
         } else if (step == 2) {
             currentStep = 2;
             document.getElementById('step1Content').style.display = 'none';
             document.getElementById('step2Content').style.display = 'block';
             document.getElementById('step3Content').style.display = 'none';
+            updateProgressBar();
         } else if (step == 3) {
             currentStep = 3;
             document.getElementById('step1Content').style.display = 'none';
@@ -309,8 +271,8 @@
                 document.getElementById('processingText').style.display = 'none';
                 document.getElementById('thankYouMessage').style.display = 'block';
             }, 10000); 
+            updateProgressBar();
         }
-        updateProgressBar();
     }
 
     function updateProgressBar() {
