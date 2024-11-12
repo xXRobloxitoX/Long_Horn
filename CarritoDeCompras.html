@@ -156,6 +156,7 @@
         <div id="progressBar" class="progress-bar-inner"></div>
     </div>
 
+    <!-- Paso 1: Dirección de Facturación -->
     <div id="step1Content">
         <div class="h5 large">Dirección de Facturación</div>
         <div class="row">
@@ -217,6 +218,7 @@
         </div>
     </div>
 
+    <!-- Paso 2: Resumen del Carro -->
     <div id="step2Content" class="stepContent" style="display:none;">
         <div class="col-lg-6 col-md-8 col-sm-10 offset-lg-0 offset-md-2 offset-sm-1 pt-lg-0 pt-3">
             <div id="cart" class="bg-white rounded">
@@ -306,7 +308,7 @@
                 document.getElementById('processingGif').style.display = 'none';
                 document.getElementById('processingText').style.display = 'none';
                 document.getElementById('thankYouMessage').style.display = 'block';
-            }, 10000); // Esperar 10 segundos para mostrar el mensaje de agradecimiento
+            }, 10000); 
         }
         updateProgressBar();
     }
