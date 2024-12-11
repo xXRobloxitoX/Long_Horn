@@ -131,108 +131,274 @@
 
 
 <!-- Comienzo de los servicios -->
-<div class="service">
-    <div class="container">
-        <div class="section-header">
-            <h2>Populares</h2>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secciones de Productos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .section-container {
+            display: none;
+        }
+
+        .section-container.active {
+            display: block;
+        }
+
+        .card {
+            margin: 10px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-4 {
+            flex: 1 0 21%; /* Hace que cada producto ocupe el 21% del espacio en la fila */
+            margin: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .col-4 {
+                flex: 1 0 45%; /* En pantallas más pequeñas, se ocupará el 45% del espacio */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .col-4 {
+                flex: 1 0 90%; /* En pantallas muy pequeñas, se ocupará el 90% del espacio */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <!-- Navegación entre secciones -->
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <button id="prev-section" class="btn btn-secondary">&#9664; Anterior</button>
+        <h2 id="section-title" class="text-center">Bebidas</h2>
+        <button id="next-section" class="btn btn-secondary">Siguiente &#9654;</button>
+    </div>
+
+    <!-- Sección de Bebidas -->
+    <div id="section-1" class="section-container active">
         <div class="row">
-            <!-- Reemplazo de los seis cuadros con imagen y botón -->
-            <div class="col-lg-4 col-md-6">
+            <!-- Cuadros de Bebidas -->
+             <!-- Reemplazo de los seis cuadros con imagen y botón -->
+             <div class="col-lg-4 col-md-6">
                 <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/468726020_1003263538512383_679265969015228751_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3lxqMy78WI4Q7kNvgGhxQLq&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AT1GdR11ZFsMUiHsV9fOq7T&oh=00_AYAdRqG0IOBxSOEu8R1Lmm3cDD2MqZBYSnbwRQ8sR17GwQ&oe=675F078E" alt="Evento 1" class="img-fluid">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/464969668_980663307439073_3560484461213117326_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=105&ccb=1-7&_nc_sid=50ad20&_nc_ohc=lkzAQmH3SGgQ7kNvgE6Dqk3&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AMLvxuDAUHKUnADrV12eJm6&oh=00_AYAriDn-EPAM3YnWwt0Lsq-m9gM_hhuXbhEQQ5yD7LLBEw&oe=675EEF02" alt="Evento 1" class="img-fluid">
                     <a href="#" class="btn btn-primary">Ordena ya</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/468736640_1003263545179049_2092735631308687711_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=m3gHi1QbqooQ7kNvgG6WtA8&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AT1GdR11ZFsMUiHsV9fOq7T&oh=00_AYB8piPiQtRsakOKZ6J1lvRqVjzr61Zzw09wDDqvnlImog&oe=675ED85D" alt="Evento 2" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/461596594_955908013247936_5517239786038932535_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=108&ccb=1-7&_nc_sid=50ad20&_nc_ohc=_ro_NTvfx4QQ7kNvgHYcvgP&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AXFTabdm68cfHR3h30nJJ7w&oh=00_AYCqULq7ipGcYca2heoeuoVLVVdima01ud7TD6chPHh8xg&oe=675F08EB" alt="Evento 2" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466784922_992579476247456_8983992187061576800_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=6Lgf9EeoeU8Q7kNvgH7sSct&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYAkMy11RuClGdQm5kA-PD90K-bl5juSIhyoiztcCiSRZQ&oe=675F08A7" alt="Evento 3" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/461561591_955908019914602_4816735039912092894_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=100&ccb=1-7&_nc_sid=50ad20&_nc_ohc=y_Uoln9E_MUQ7kNvgFnOfH1&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AXFTabdm68cfHR3h30nJJ7w&oh=00_AYDSthqOHf68aGeIvY1lVl3p6XH3aDOaz3ZhULRFNUwFtQ&oe=675EFB65" alt="Evento 3" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/467039709_992579486247455_3823843452836918131_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=GUjio1YrguMQ7kNvgH2s0iS&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYCFJYgoVyyn4cBfxOTyr8rkShXW8ZgWHOD-goyGEXq41A&oe=675EFD85" alt="Evento 4" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/450182446_897684002403671_2476645604064118651_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=714c7a&_nc_ohc=pvcm42JQ2PYQ7kNvgF2wA3I&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AAjyXCtcmTcZ9VUJGwQNF2x&oh=00_AYCMzNhhwQGBjhrmxA0q3ppPt572ouGurqSXB5t-YQwhaA&oe=675F0B39" alt="Evento 4" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">
                 <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466939362_992579479580789_3753636747248986261_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=O1bPewUEyqAQ7kNvgHZpxmA&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYDAZ4FNb2yKdVJDH3zAQrynoIAXpsKbUU0QKJmiELC1rA&oe=675EF9CC" alt="Evento 5" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-             
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466457609_991123789726358_1426987766635731214_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=p-I_K2rIpBgQ7kNvgEG_UZw&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYBeQ2oTDaq0_cZkmZuhnEhWy_Er6Ly2QDAabMQhOKUBvA&oe=675EFEB0" alt="Evento 6" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-             <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466932616_991123769726360_3657010176651400942_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xGCCxJYLykUQ7kNvgGqnwiO&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYCu6IBVZDC0NciuZgIZZEAlnSfSrLqk_kFwPF8Ig_mhKQ&oe=675EFED4" alt="Evento 7" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/465756541_985869610251776_4246267711085314788_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_ShMQhAH3eAQ7kNvgFFepTb&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AKhUzrWA5Yd4BqNAL2hS972&oh=00_AYCWYnXpQpsEyQ0YuHsaalT4-twOlhQuWYMV8_ZfLbyT7Q&oe=675EE32D" alt="Evento 8" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/465815280_985869613585109_228435619776036538_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WoSCTEglun8Q7kNvgEONmI5&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AKhUzrWA5Yd4BqNAL2hS972&oh=00_AYAtlF88bNO4jNJOXyRhY9zRVpeXu3fIJaqxQTrLVXd_3A&oe=675EE534" alt="Evento 9" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-                        <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/464570329_977699754402095_3832742710697719051_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5IhLerK4VbcQ7kNvgFE_akS&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=A69g5VXTbPAynxWIlO_BYY2&oh=00_AYAygZcu7MziYlyoFxK9tyUdDA8fwDRxXqdXaYq_Wh5DXw&oe=675EF411" alt="Evento 10" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/464170363_975424664629604_6319785539703406712_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=SVg_9g0vgZsQ7kNvgF4p69j&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=A69g5VXTbPAynxWIlO_BYY2&oh=00_AYCKQ9quMNZr6nC4alJHNinOy76RxoENvsCyMOgwS_3Vuw&oe=675EF6ED" alt="Evento 11" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/464219209_975424667962937_9198694711557268648_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kM9LsqAjQ8IQ7kNvgGgRpaV&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=A69g5VXTbPAynxWIlO_BYY2&oh=00_AYDEeeAU9n2Cins-KLgzv7Wg58A3a4neY4w3GOzB3UC4HQ&oe=675EE6B0" alt="Evento 12" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-                        <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/462368461_963602592478478_8452639609923821000_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=eop3PRq3Nn4Q7kNvgHTi6n7&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=ATDAm--IMbBbl7yYFo2ATX_&oh=00_AYATWjzj115USVeS8H59XfB_7TBJeI0UIDizo4CWtQPoag&oe=675EF935" alt="Evento 13" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/461995499_961301046041966_3230098739487799298_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7xRhBGFh8wQQ7kNvgEXHybL&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AMi0MyINN9vutDir49iLJ5S&oh=00_AYB65uH3Iyc61Pr2zC4S0DHXKg_ryoAvAx8MYPKUGrsqVw&oe=675F0184" alt="Evento 14" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/462039202_960014632837274_7720249789658087257_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=UVXrh1D9qoIQ7kNvgGSrV_i&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AMi0MyINN9vutDir49iLJ5S&oh=00_AYAom-a4w-eYBMubP38lrKejPfUaOxTDtjj-A_LxdqAiIA&oe=675EDAFF" alt="Evento 15" class="img-fluid">
-                    <a href="#" class="btn btn-primary">Ver Más</a>
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/443696499_868374242001314_6575497205558587326_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=109&ccb=1-7&_nc_sid=50ad20&_nc_ohc=4Wg8jyMHHScQ7kNvgH9zct3&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AN0F-RJG0PsJr-PyX7gIIP3&oh=00_AYCkweKEMs3MXha9pBxXpF5YTEyWE4hT8-upjVGpALUMPA&oe=675F08D7" alt="Evento 5" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- Servicios finales -->
+
+    <!-- Sección de Comida -->
+    <div id="section-2" class="section-container">
+        <div class="row">
+            <!-- Cuadros de Comida -->
+            <!-- Reemplazo de los seis cuadros con imagen y botón -->
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/468726020_1003263538512383_679265969015228751_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_ohc=3lxqMy78WI4Q7kNvgGhxQLq&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AT1GdR11ZFsMUiHsV9fOq7T&oh=00_AYAdRqG0IOBxSOEu8R1Lmm3cDD2MqZBYSnbwRQ8sR17GwQ&oe=675F078E" alt="Evento 1" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/468736640_1003263545179049_2092735631308687711_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=m3gHi1QbqooQ7kNvgG6WtA8&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AT1GdR11ZFsMUiHsV9fOq7T&oh=00_AYB8piPiQtRsakOKZ6J1lvRqVjzr61Zzw09wDDqvnlImog&oe=675ED85D" alt="Evento 2" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466784922_992579476247456_8983992187061576800_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=6Lgf9EeoeU8Q7kNvgH7sSct&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYAkMy11RuClGdQm5kA-PD90K-bl5juSIhyoiztcCiSRZQ&oe=675F08A7" alt="Evento 3" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/467039709_992579486247455_3823843452836918131_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=GUjio1YrguMQ7kNvgH2s0iS&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYCFJYgoVyyn4cBfxOTyr8rkShXW8ZgWHOD-goyGEXq41A&oe=675EFD85" alt="Evento 4" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466939362_992579479580789_3753636747248986261_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=O1bPewUEyqAQ7kNvgHZpxmA&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYDAZ4FNb2yKdVJDH3zAQrynoIAXpsKbUU0QKJmiELC1rA&oe=675EF9CC" alt="Evento 5" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+             
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466457609_991123789726358_1426987766635731214_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=p-I_K2rIpBgQ7kNvgEG_UZw&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYBeQ2oTDaq0_cZkmZuhnEhWy_Er6Ly2QDAabMQhOKUBvA&oe=675EFEB0" alt="Evento 6" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+             <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/466932616_991123769726360_3657010176651400942_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=106&ccb=1-7&_nc_sid=833d8c&_nc_ohc=xGCCxJYLykUQ7kNvgGqnwiO&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AvLGeD8COrs8JHp3n8WkZdK&oh=00_AYCu6IBVZDC0NciuZgIZZEAlnSfSrLqk_kFwPF8Ig_mhKQ&oe=675EFED4" alt="Evento 7" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/465756541_985869610251776_4246267711085314788_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=_ShMQhAH3eAQ7kNvgFFepTb&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AKhUzrWA5Yd4BqNAL2hS972&oh=00_AYCWYnXpQpsEyQ0YuHsaalT4-twOlhQuWYMV8_ZfLbyT7Q&oe=675EE32D" alt="Evento 8" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/465815280_985869613585109_228435619776036538_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=WoSCTEglun8Q7kNvgEONmI5&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AKhUzrWA5Yd4BqNAL2hS972&oh=00_AYAtlF88bNO4jNJOXyRhY9zRVpeXu3fIJaqxQTrLVXd_3A&oe=675EE534" alt="Evento 9" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+                        <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/464570329_977699754402095_3832742710697719051_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_ohc=5IhLerK4VbcQ7kNvgFE_akS&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=A69g5VXTbPAynxWIlO_BYY2&oh=00_AYAygZcu7MziYlyoFxK9tyUdDA8fwDRxXqdXaYq_Wh5DXw&oe=675EF411" alt="Evento 10" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/464170363_975424664629604_6319785539703406712_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=SVg_9g0vgZsQ7kNvgF4p69j&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=A69g5VXTbPAynxWIlO_BYY2&oh=00_AYCKQ9quMNZr6nC4alJHNinOy76RxoENvsCyMOgwS_3Vuw&oe=675EF6ED" alt="Evento 11" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/464219209_975424667962937_9198694711557268648_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_ohc=kM9LsqAjQ8IQ7kNvgGgRpaV&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=A69g5VXTbPAynxWIlO_BYY2&oh=00_AYDEeeAU9n2Cins-KLgzv7Wg58A3a4neY4w3GOzB3UC4HQ&oe=675EE6B0" alt="Evento 12" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+                        <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/462368461_963602592478478_8452639609923821000_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=108&ccb=1-7&_nc_sid=833d8c&_nc_ohc=eop3PRq3Nn4Q7kNvgHTi6n7&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=ATDAm--IMbBbl7yYFo2ATX_&oh=00_AYATWjzj115USVeS8H59XfB_7TBJeI0UIDizo4CWtQPoag&oe=675EF935" alt="Evento 13" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/461995499_961301046041966_3230098739487799298_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_ohc=7xRhBGFh8wQQ7kNvgEXHybL&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AMi0MyINN9vutDir49iLJ5S&oh=00_AYB65uH3Iyc61Pr2zC4S0DHXKg_ryoAvAx8MYPKUGrsqVw&oe=675F0184" alt="Evento 14" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/462039202_960014632837274_7720249789658087257_n.jpg?stp=dst-jpg_s600x600_tt6&_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=UVXrh1D9qoIQ7kNvgGSrV_i&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AMi0MyINN9vutDir49iLJ5S&oh=00_AYAom-a4w-eYBMubP38lrKejPfUaOxTDtjj-A_LxdqAiIA&oe=675EDAFF" alt="Evento 15" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Servicios finales -->
+
+    <!-- Sección de Carnes Premium -->
+    <div id="section-3" class="section-container">
+        <div class="row">
+             <!-- Reemplazo de los seis cuadros con imagen y botón -->
+             <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/431923714_822342479937824_6033109534934374800_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=105&ccb=1-7&_nc_sid=50ad20&_nc_ohc=7pMoVxAkw6UQ7kNvgHhPppe&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AitrM2_RglNbruseGZeXr4G&oh=00_AYByeX53TUfnjcll8rMmpZ7TrYpAql5ZkNbXl6MvNrxZEA&oe=675F25A4" alt="Evento 1" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/426620352_801537455351660_936908265469751073_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=111&ccb=1-7&_nc_sid=714c7a&_nc_ohc=DjKSBQAEeUMQ7kNvgEnH3-y&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AB3vHT2lIZHcs-Wc-mcu26W&oh=00_AYAeIktaogPsYVjZxi1YmisqMIJ-L8CdGDCPB1rw3mY2fQ&oe=675F0FA8" alt="Evento 2" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/356889884_658711556300918_9159227135976857816_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=108&ccb=1-7&_nc_sid=714c7a&_nc_ohc=rSmTittnPM4Q7kNvgF-QnMB&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=A1IIn_RY7ZifC_YZ3Pwm05x&oh=00_AYAGHa636rPk4D_ehlq4yE2byCv_-xbZhFe3GCeO6TOdFw&oe=675EF251" alt="Evento 3" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/297458978_7823001291105553_6527300828862284872_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=107&ccb=1-7&_nc_sid=714c7a&_nc_ohc=ML-ZBvnkN44Q7kNvgEoEB_L&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AmNIGQBL1soN-Frv0kHlAce&oh=00_AYDXeSLcGMCcSFfF4rjGaA-a05uP8l0gZ8HqduCcjr_PtQ&oe=675EF46C" alt="Evento 4" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t39.30808-6/294272166_7732612406811109_4844804195037002208_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=105&ccb=1-7&_nc_sid=50ad20&_nc_ohc=zeY1QzBbvtwQ7kNvgHo4uI7&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=AfZpaDR2lVK8z9cjOTniOWF&oh=00_AYCzW44B7atASC5Us4H0Nn3Jd2DJpRewnBi-hMqi_ygzZQ&oe=675EFFAD" alt="Evento 5" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="service-item">
+                    <img src="https://scontent.fjau3-1.fna.fbcdn.net/v/t1.6435-9/180573196_5418952628177110_264931009678283212_n.jpg?stp=dst-jpg_s206x206_tt6&_nc_cat=110&ccb=1-7&_nc_sid=714c7a&_nc_ohc=6p2rsjom5esQ7kNvgFl46zD&_nc_zt=23&_nc_ht=scontent.fjau3-1.fna&_nc_gid=ACSXAj0WJJM9mcekDnyuuYf&oh=00_AYCtPUYMjn-y62r7eHomBIdn-ZorCckK1S-Nlh16yjfJMA&oe=6780976F" alt="Evento 4" class="img-fluid">
+                    <a href="#" class="btn btn-primary">Ordena ya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Servicios finales -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Navegación entre secciones
+    let currentSection = 1;
+    const totalSections = 3; // Ahora hay 3 secciones
+    const sectionTitle = document.getElementById('section-title');
+    
+    document.getElementById('next-section').addEventListener('click', () => {
+        if (currentSection < totalSections) {
+            document.getElementById('section-' + currentSection).classList.remove('active');
+            currentSection++;
+            document.getElementById('section-' + currentSection).classList.add('active');
+            sectionTitle.textContent = currentSection === 1 ? 'Bebidas' : (currentSection === 2 ? 'Comida' : 'Carnes Premium');
+        }
+    });
+
+    document.getElementById('prev-section').addEventListener('click', () => {
+        if (currentSection > 1) {
+            document.getElementById('section-' + currentSection).classList.remove('active');
+            currentSection--;
+            document.getElementById('section-' + currentSection).classList.add('active');
+            sectionTitle.textContent = currentSection === 1 ? 'Bebidas' : (currentSection === 2 ? 'Comida' : 'Carnes Premium');
+        }
+    });
+</script>
+
+</body>
+</html>
+
 
 <!-- Comienzo -->
 <div class="feature">
